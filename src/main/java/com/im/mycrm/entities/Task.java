@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Task {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -18,6 +19,7 @@ public class Task {
 	
 	@OneToOne
 	private Customer customer;
+	
 
 	public Long getId() {
 		return id;
@@ -67,6 +69,7 @@ public class Task {
 		this.customer = customer;
 	}
 	
-	//Getters and Setters
+	//Getters and Setters Here
+	
 	
 }

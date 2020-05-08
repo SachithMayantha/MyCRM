@@ -3,7 +3,6 @@ package com.im.mycrm.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,12 +13,12 @@ import com.im.mycrm.entities.Customer;
 import com.im.mycrm.repositories.CustomerRepository;
 
 @RestController
-@CrossOrigin(origins="*",allowedHeaders ="*", maxAge = 3600)
 public class CustomerController {
+
 	@Autowired
 	CustomerRepository customerRepository;
 	
-	@GetMapping("/customer")
+	@GetMapping("/customers")
 	public List<Customer> getCustomers(){
 		return customerRepository.findAll();
 	}
@@ -27,6 +26,19 @@ public class CustomerController {
 	@GetMapping("/customer/{id}")
 	public Customer getCustomer(@PathVariable Long id) {
 		return customerRepository.findById(id).get();
-	}	
-
+	}
+	
+	
+	@PostMapping("/customer")
+	public Customer createCustomer(Customer customer){
+		return customerRepository.save(customer);
+	}
+	
+	@DeleteMapping("/customer/{id}")
+	public boolean deleteCustomer(@PathVariable Long id){
+		customerRepository.deleteById(id);
+		return true;
+	}
+	
+	
 }

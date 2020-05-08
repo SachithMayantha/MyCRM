@@ -18,12 +18,11 @@ public class Customer {
 		
 	}
 	
-	public Customer(String name,String address, String mobile) {
+	public Customer(String name, String address, String mobile) {
 		this.name = name;
 		this.address = address;
 		this.mobile = mobile;
 	}
-	//Getters and Setters
 
 	public Long getId() {
 		return id;
@@ -56,5 +55,8 @@ public class Customer {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	
+	//Generate Getters and Setters
+	
 	
 }
